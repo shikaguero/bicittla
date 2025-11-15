@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Bicittla</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo">Bicittla</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="nosotros.html">Sobre Nosotros</a></li>
+                    <li><a href="contacto.html" class="active">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="nav-right">
+                <span id="user-display"></span>
+                <button class="nav-button" id="ver-login">Login</button>
+                <button class="nav-button" id="ver-logout">Logout</button>
+                <button class="nav-button" id="ver-carrito">
+                    Carrito
+                    <span id="carrito-contador">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="static-page">
+                <h1>Ponte en Contacto</h1>
+                <p>¿Tienes preguntas sobre nuestro proyecto o sobre los productos? Llena este formulario de contacto (es una simulación, no enviará un correo real).</p>
+                
+                <form class="contact-form" onsubmit="alert('¡Formulario enviado! (Simulación)'); return false;">
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="correo">Correo Electrónico</label>
+                        <input type="email" id="correo" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje</label>
+                        <textarea id="mensaje" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Enviar Mensaje</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <button class="chat-fab" id="toggle-chat">
+        💬
+    </button>
+
+    <div class="chat-window hidden" id="chat-window">
+        <div class="chat-header">
+            <h3>Asistente Virtual Bicittla</h3>
+            <span class="chat-close" id="close-chat">&times;</span>
+        </div>
+        <div class="chat-messages" id="chat-messages">
+            <div class="message bot">
+                ¡Hola! 👋 Soy BiciBot. Escribe a dónde quieres ir:
+                <ul>
+                    <li><b>"Inicio"</b> (para ver productos)</li>
+                    <li><b>"Nosotros"</b> (para conocernos)</li>
+                    <li><b>"Contacto"</b> (para enviarnos un msj)</li>
+                </ul>
+            </div>
+        </div>
+        <div class="chat-input-area">
+            <input type="text" id="chat-input" placeholder="Escribe tu mensaje...">
+            <button id="chat-send-btn">Enviar</button>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 Bicittla. Proyecto de Negocios Electrónicos.</p>
+            <p>Total de páginas vistas: <span id="contador-visitas">0</span></p>
+            <h3 class="social-title">¡Visítanos en nuestras redes sociales!</h3>
+            <div class="social-links">
+                <a href="https://www.facebook.com/bicittla" target="_blank" aria-label="Visita nuestra página de Facebook" class="social-link">
+                    <img src="images/icons/facebook.png" alt="Facebook">
+                </a>
+                <a href="https://www.instagram.com/bicittla" target="_blank" aria-label="Síguenos en Instagram" class="social-link">
+                    <img src="images/icons/instagram.png" alt="Instagram">
+                </a>
+                <a href="https://www.youtube.com/@bicittla" target="_blank" aria-label="Suscríbete a nuestro canal de YouTube" class="social-link">
+                    <img src="images/icons/youtube.png" alt="YouTube">
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="modal-login" class="modal">
+        <div class="modal-content" style="max-width: 400px;">
+            <div class="modal-header">
+                <h2>Iniciar Sesión</h2>
+                <span class="modal-close" id="cerrar-login">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>Esto es una simulación. Ingresa cualquier correo y contraseña.</p>
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico:</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Contraseña:</label>
+                        <input type="password" id="password" required>
+                    </div>
+                    <button type="submit" class="btn-submit">Ingresar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-carrito" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Tu Carrito de Compras</h2>
+                <span class="modal-close" id="cerrar-carrito">&times;</span>
+            </div>
+            <div class="modal-body" id="carrito-items">
+            </div>
+            <div class="carrito-footer">
+                <div class="carrito-total">
+                    Total: $<span id="carrito-total">0</span>
+                </div>
+                <button class="nav-button btn-vaciar" id="vaciar-carrito">Vaciar Carrito</button>
+                <button class="nav-button btn-checkout">Proceder al Pago (Sim)</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+
+</body>
+</html>

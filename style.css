@@ -1,0 +1,709 @@
+/* --- VARIABLES ROOT --- */
+:root {
+    --primary-color: #245e25; /* Verde Oscuro Principal */
+    --dark-color: #83851b;  /* Oliva/Mostaza para acentos y hover */
+    --footer-bg: #1a451b; /* Fondo aún más oscuro para el pie de página */
+    --accent-red: #e74c3c; /* Color de alerta/carrito (rojo) */
+    --light-gray: #f4f4f4;
+    --medium-gray: #ccc;
+    --text-color: #333;
+}
+
+/* --- ESTILOS GLOBALES --- */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--light-gray);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden;
+    padding: 0 2rem;
+}
+
+h1, h2, h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* --- HEADER / NAVEGACIÓN --- */
+.main-header {
+    background: #ffffff;
+    border-bottom: 1px solid #ddd;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color); /* Usamos el verde principal */
+}
+
+.main-nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.main-nav li {
+    margin-left: 1.5rem;
+}
+
+.main-nav a {
+    color: #555;
+    font-weight: 500;
+    padding-bottom: 5px;
+}
+
+.main-nav a.active,
+.main-nav a:hover {
+    color: var(--primary-color); /* Usamos el verde principal */
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+}
+
+.nav-right span {
+    margin-right: 1rem;
+    font-size: 0.9rem;
+}
+
+.nav-button {
+    background: none;
+    border: 1px solid #ccc;
+    padding: 0.5rem 0.8rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 0.5rem;
+    font-size: 0.9rem;
+    position: relative;
+}
+
+.nav-button:hover {
+    background: #f0f0f0;
+}
+
+#ver-logout {
+    display: none; /* Oculto por defecto */
+    border-color: var(--accent-red);
+    color: var(--accent-red);
+}
+
+#carrito-contador {
+    background-color: var(--accent-red);
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 0.7rem;
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    border: 1px solid white;
+}
+
+/* --- CONTENIDO PRINCIPAL --- */
+.main-content {
+    padding: 2rem 0;
+}
+/* Logo de fondo */
+.hero {
+    background: url('https://www.tlalnepantla.tecnm.mx/img/escudo/emblem.png') no-repeat center center/cover;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.hero-content {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+.hero-content h1 {
+    color: white;
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+/* --- LISTA DE PRODUCTOS --- */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.producto-card {
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+.producto-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.producto-card h3 {
+    font-size: 1.2rem;
+    padding: 1rem 1rem 0.5rem 1rem;
+    margin: 0;
+}
+
+.producto-card p {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--dark-color); /* Usamos el color oliva para destacar el precio */
+    padding: 0 1rem 1rem 1rem;
+    margin: 0;
+    flex-grow: 1; /* Empuja el botón hacia abajo */
+}
+
+.btn-agregar {
+    display: block;
+    width: calc(100% - 2rem);
+    padding: 0.8rem;
+    margin: 0 1rem 1rem 1rem;
+    background: var(--primary-color); /* Usamos el verde principal */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+}
+
+.btn-agregar:hover {
+    background: var(--dark-color); /* Usamos el oliva para hover */
+}
+
+/* --- PÁGINAS ESTÁTICAS (Sobre Nosotros, Contacto) --- */
+.static-page {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.static-page p {
+    margin-bottom: 1rem;
+}
+
+/* --- FORMULARIO DE CONTACTO --- */
+.contact-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Asegura que el padding no afecte el ancho */
+}
+
+.contact-form textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.btn-submit {
+    background: var(--primary-color); /* Usamos el verde principal */
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.btn-submit:hover {
+    background: var(--dark-color); /* Usamos el oliva para hover */
+}
+
+/* --- MODALES (Login y Carrito) --- */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    border: 1px solid #888;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    animation: slide-down 0.3s ease-out;
+}
+
+@keyframes slide-down {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-header {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h2 {
+    margin: 0;
+}
+
+.modal-close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+    color: #000;
+}
+
+.modal-body {
+    padding: 1.5rem;
+}
+
+/* Modal de Login */
+#login-form .form-group {
+    margin-bottom: 1rem;
+}
+#login-form label {
+    display: block;
+    margin-bottom: 0.3rem;
+}
+#login-form input {
+    width: 100%;
+    padding: 0.7rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Modal de Carrito */
+#modal-carrito .modal-content {
+    max-width: 600px;
+}
+
+.carrito-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 1rem;
+}
+.carrito-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.carrito-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 1rem;
+}
+
+.carrito-item-info {
+    flex-grow: 1;
+}
+.carrito-item-info strong {
+    display: block;
+}
+
+.carrito-item-controles {
+    display: flex;
+    align-items: center;
+}
+.carrito-item-controles span {
+    margin: 0 0.5rem;
+    min-width: 20px;
+    text-align: center;
+}
+.carrito-item-controles button {
+    background: #eee;
+    border: 1px solid #ccc;
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.carrito-item-controles .btn-quitar {
+    background: #f8d7da;
+    color: #721c24;
+    border-color: #f5c6cb;
+    margin-left: 1rem;
+}
+
+.carrito-footer {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid #eee;
+    text-align: right;
+}
+
+.carrito-total {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+.carrito-total span {
+    color: var(--primary-color); /* Usamos el verde principal */
+}
+
+.btn-vaciar {
+    background: var(--accent-red);
+    color: white;
+}
+.btn-checkout {
+    background: var(--primary-color); /* Usamos el verde principal */
+    color: white;
+}
+
+/* --- NOTIFICACIÓN --- */
+.notificacion {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px); /* Empieza abajo */
+    background-color: var(--primary-color); /* Usamos el verde principal */
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    z-index: 3000;
+    opacity: 0;
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+.notificacion.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+
+/* --- FOOTER --- */
+.main-footer {
+    background: var(--footer-bg); /* Fondo muy oscuro para el pie de página */
+    color: #ecf0f1;
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 2rem;
+}
+
+.main-footer p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+/* --- ESTILOS CONTADOR DE VISITAS --- */
+#contador-visitas {
+    font-weight: bold;
+    color: var(--dark-color); /* El contador resaltará con el oliva/mostaza */
+}
+
+/* --- ESTILOS CHATBOT --- */
+.chat-fab {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 60px;
+    height: 60px;
+    background-color: var(--primary-color); /* Usa el verde principal */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 28px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    z-index: 1001;
+    transition: transform 0.2s;
+}
+
+.chat-fab:hover {
+    transform: scale(1.1);
+}
+
+.chat-window {
+    position: fixed;
+    bottom: 100px;
+    right: 25px;
+    width: 350px;
+    height: 450px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.chat-window.hidden {
+    opacity: 0;
+    transform: scale(0.9);
+    pointer-events: none;
+}
+
+.chat-header {
+    background: var(--primary-color); /* Usa el verde principal */
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: white;
+}
+
+.chat-close {
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.chat-messages {
+    flex-grow: 1;
+    padding: 1rem;
+    overflow-y: auto;
+    background-color: var(--light-gray);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.message {
+    padding: 0.75rem 1rem;
+    border-radius: 18px;
+    max-width: 85%;
+    line-height: 1.4;
+    word-wrap: break-word;
+}
+
+.message.bot {
+    background-color: #ecf0f1;
+    color: var(--text-color);
+    align-self: flex-start;
+    border-bottom-left-radius: 5px;
+}
+.message.bot ul {
+    margin: 0.5rem 0 0 1rem;
+    padding: 0;
+}
+
+.message.user {
+    background-color: var(--dark-color); /* Usa el oliva/mostaza */
+    color: white;
+    align-self: flex-end;
+    border-bottom-right-radius: 5px;
+}
+
+.chat-input-area {
+    display: flex;
+    border-top: 1px solid #ddd;
+    padding: 0.75rem;
+}
+
+#chat-input {
+    flex-grow: 1;
+    border: 1px solid var(--medium-gray);
+    border-radius: 20px;
+    padding: 0.75rem 1rem;
+    margin-right: 0.5rem;
+}
+
+#chat-send-btn {
+    background: var(--primary-color); /* Usa el verde principal */
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 0.75rem 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+#chat-send-btn:hover {
+    background: var(--dark-color); /* Usa el oliva/mostaza */
+}
+
+/* ------------------------------------------------- */
+/* --- ESTILOS PARA SPECS EXPANDIBLES --- */
+/* ------------------------------------------------- */
+
+.btn-specs {
+    display: block;
+    width: calc(100% - 2rem);
+    padding: 0.5rem;
+    margin: 0 1rem 1rem 1rem;
+    background: var(--dark-color); /* Usa el oliva/mostaza */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    text-align: center;
+    transition: background 0.2s;
+}
+
+.btn-specs:hover {
+    background: var(--primary-color); /* Usa el verde principal para hover */
+}
+
+.specs-content {
+    background-color: #ecf0f1;
+    border-top: 1px solid #ddd;
+    padding: 1rem;
+    margin: 0 1rem 1rem 1rem;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    max-height: 500px;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out;
+}
+
+.specs-content.hidden {
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    opacity: 0;
+    transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out, opacity 0.3s;
+}
+
+.specs-content h4 {
+    margin-top: 0;
+    color: var(--primary-color);
+    font-size: 1rem;
+    border-bottom: 1px solid #bdc3c7;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.specs-content p {
+    margin: 0.25rem 0;
+    padding: 0;
+    color: #555;
+    font-weight: normal;
+}
+
+.specs-content strong {
+    font-weight: 600;
+}
+
+/* Ajuste para que el botón de 'Agregar' quede justo debajo del contenedor de specs */
+.producto-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.producto-card .btn-agregar {
+    margin-top: auto;
+}
+
+/* --- ESTILOS PARA REDES SOCIALES (Nuevos) --- */
+.social-title {
+    color: white;
+    font-size: 1rem;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.social-links {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-link {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color: var(--primary-color); /* Usa el color principal */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-decoration: none;
+}
+
+.social-link img {
+    width: 24px;
+    height: 24px;
+    filter: invert(100%);
+}
+
+.social-link:hover {
+    background-color: var(--dark-color); /* Usa el color secundario para hover */
+    transform: translateY(-3px);
+}

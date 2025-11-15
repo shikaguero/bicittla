@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nosotros - Bicittla</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo">Bicittla</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="nosotros.html" class="active">Sobre Nosotros</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="nav-right">
+                <span id="user-display"></span>
+                <button class="nav-button" id="ver-login">Login</button>
+                <button class="nav-button" id="ver-logout">Logout</button>
+                <button class="nav-button" id="ver-carrito">
+                    Carrito
+                    <span id="carrito-contador">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="static-page">
+                <h1>Sobre Bicittla</h1>
+                <p>Bienvenidos a Bicittla, el proyecto final para la clase de Negocios Electrónicos. Nuestra misión es simular una plataforma de e-commerce líder para entusiastas del ciclismo de todas las edades y niveles.</p>
+                <p>Fundada en 2025 (como simulación), Bicittla nació de la pasión por las dos ruedas y el deseo de crear una experiencia de compra en línea que fuera tan emocionante como la propia rodada. Entendemos que una bicicleta no es solo un medio de transporte, sino un estilo de vida, una herramienta de salud y una fuente de alegría.</p>
+                
+                <h2>Nuestra Visión</h2>
+                <p>Ser la tienda en línea de referencia, demostrando el poder de las plataformas digitales para conectar a los clientes con productos de alta calidad, información valiosa y una comunidad vibrante. Este proyecto implementa características clave como un catálogo de productos dinámico, un carrito de compras funcional y un sistema de autenticación de usuarios simulado.</p>
+
+                <h2>El Equipo</h2>
+                <p>Este proyecto fue desarrollado por Carlos Martinez, Yahir Rodriguez Daniel Solis y Carolina, estudiantes de Ingenieria en Tecnologias de la Informacion y Comunicaciones, como una demostración práctica de los conceptos aprendidos en clase.</p>
+            </div>
+        </div>
+    </main>
+
+    <button class="chat-fab" id="toggle-chat">
+        💬
+    </button>
+
+    <div class="chat-window hidden" id="chat-window">
+        <div class="chat-header">
+            <h3>Asistente Virtual Bicittla</h3>
+            <span class="chat-close" id="close-chat">&times;</span>
+        </div>
+        <div class="chat-messages" id="chat-messages">
+            <div class="message bot">
+                ¡Hola! 👋 Soy BiciBot. Escribe a dónde quieres ir:
+                <ul>
+                    <li><b>"Inicio"</b> (para ver productos)</li>
+                    <li><b>"Nosotros"</b> (para conocernos)</li>
+                    <li><b>"Contacto"</b> (para enviarnos un msj)</li>
+                </ul>
+            </div>
+        </div>
+        <div class="chat-input-area">
+            <input type="text" id="chat-input" placeholder="Escribe tu mensaje...">
+            <button id="chat-send-btn">Enviar</button>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 Bicittla. Proyecto de Negocios Electrónicos.</p>
+            <p>Total de páginas vistas: <span id="contador-visitas">0</span></p>
+            <h3 class="social-title">¡Visítanos en nuestras redes sociales!</h3>
+            <div class="social-links">
+                <a href="https://www.facebook.com/bicittla" target="_blank" aria-label="Visita nuestra página de Facebook" class="social-link">
+                    <img src="images/icons/facebook.png" alt="Facebook">
+                </a>
+                <a href="https://www.instagram.com/bicittla" target="_blank" aria-label="Síguenos en Instagram" class="social-link">
+                    <img src="images/icons/instagram.png" alt="Instagram">
+                </a>
+                <a href="https://www.youtube.com/@bicittla" target="_blank" aria-label="Suscríbete a nuestro canal de YouTube" class="social-link">
+                    <img src="images/icons/youtube.png" alt="YouTube">
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="modal-login" class="modal">
+        <div class="modal-content" style="max-width: 400px;">
+            <div class="modal-header">
+                <h2>Iniciar Sesión</h2>
+                <span class="modal-close" id="cerrar-login">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>Esto es una simulación. Ingresa cualquier correo y contraseña.</p>
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico:</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Contraseña:</label>
+                        <input type="password" id="password" required>
+                    </div>
+                    <button type="submit" class="btn-submit">Ingresar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-carrito" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Tu Carrito de Compras</h2>
+                <span class="modal-close" id="cerrar-carrito">&times;</span>
+            </div>
+            <div class="modal-body" id="carrito-items">
+            </div>
+            <div class="carrito-footer">
+                <div class="carrito-total">
+                    Total: $<span id="carrito-total">0</span>
+                </div>
+                <button class="nav-button btn-vaciar" id="vaciar-carrito">Vaciar Carrito</button>
+                <button class="nav-button btn-checkout">Proceder al Pago (Sim)</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="app.js"></script>
+
+</body>
+</html>
